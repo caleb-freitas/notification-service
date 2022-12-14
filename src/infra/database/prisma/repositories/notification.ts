@@ -12,7 +12,7 @@ export class PrismaNotificationRepository implements NotificationRepository {
       data: {
         id: notification.id,
         category: notification.category,
-        content: String(notification.content),
+        content: notification.content.value,
         recipientId: notification.recipientId,
         readedAt: notification.readedAt,
         createdAt: notification.createdAt,
