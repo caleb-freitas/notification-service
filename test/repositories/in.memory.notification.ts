@@ -28,4 +28,20 @@ export class InMemoryNotificationRepository implements NotificationRepository {
     }
     return notification;
   }
+
+  async countManyByRecipientId(recipientId: string): Promise<number> {
+    const count = this.notifications.filter(
+      (notification) => notification.recipientId === recipientId,
+    ).length;
+
+    return count;
+  }
+
+  async listManyByRecipientId(recipientId: string): Promise<Notification[]> {
+    const notifications = this.notifications.filter(
+      (notification) => notification.recipientId === recipientId,
+    );
+
+    return notifications;
+  }
 }
